@@ -2,7 +2,8 @@
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const access_token = urlParams.get('token');
+  const access_token = urlParams.get('access_token');
+    const refresh_token = urlParams.get('refresh_token');   
   // redirige vers ton app avec le token
-  window.location.href = `exp://192.168.1.15:8081/(tabs)/account/resetpassword?access_token=${access_token}`;
+    window.location.href = `exp://192.168.1.15:8081/(tabs)/account/resetpassword?access_token=${access_token}&refresh_token=${refresh_token}`;
 </script>
