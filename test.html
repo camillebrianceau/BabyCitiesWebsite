@@ -1,9 +1,15 @@
 <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get('token');
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
 
-  // redirection vers ton app en passant le token
-  window.location.href = `exp://192.168.1.15:8081/(tabs)/account/resetpassword?token=${token}`;
+  const access_token = params.get("access_token");
+  const refresh_token = params.get("refresh_token");
+
+  const deepLink = `expo://resetpassword#access_token=${access_token}&refresh_token=${refresh_token}`;
+
+  window.location.href = deepLink;
+
+  console.log(window.location.href)
 </script>
 
 <!-- 
@@ -34,4 +40,4 @@ https://camillebrianceau.github.io/BabyCitiesWebsite/test
 
 https://camillebrianceau.github.io/BabyCitiesWebsite/test?access_token=924dd7fbb38005f30ca0f77cdae59821f2697dbd8ab748c3f0ca587b -->
 
-<!-- https://rfhchumqkxuqcccmdsns.supabase.co/auth/v1/verify?token=ae732a8cda215565e5733f521f9c4ac38af936673cd9fa7db05dd5e0&type=recovery&redirect_to=https://camillebrianceau.github.io/BabyCitiesWebsite/test -->
+<!-- https://rfhchumqkxuqcccmdsns.supabase.co/auth/v                        1/verify?token=ae732a8cda215565e5733f521f9c4ac38af936673cd9fa7db05dd5e0&type=recovery&redirect_to=https://camillebrianceau.github.io/BabyCitiesWebsite/test -->
