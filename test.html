@@ -5,7 +5,7 @@
   const access_token = params.get("access_token");
   const refresh_token = params.get("refresh_token");
 
-  const deepLink = `exp://192.168.1.15:8081/(tabs)/account/resetpassword#access_token=${access_token}&refresh_token=${refresh_token}`;
+  const deepLink = `exp://192.168.1.15:8081/(tabs)/account/resetpassword?access_token=${access_token}&refresh_token=${refresh_token}`;
 
   window.location.href = deepLink;
 
