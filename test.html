@@ -5,7 +5,7 @@
   const access_token = params.get("access_token");
   const refresh_token = params.get("refresh_token");
 
-  const deepLink = `exp://192.168.1.15:8081/--/account/resetpassword?access_token=${access_token}&refresh_token=${refresh_token}`;
+  const deepLink = `exp://192.168.1.15:8081/--/account/reset-password?access_token=${access_token}&refresh_token=${refresh_token}`;
 
   // tentative auto
   window.location.href = deepLink;
@@ -18,32 +18,3 @@
     `;
   }, 1500);
 </script>
-<!-- 
-<script>
-  console.log("FULL URL:", window.location.href);
-  console.log("HASH:", window.location.hash);
-    https://camillebrianceau.github.io/BabyCitiesWebsite/test#access_token=eyJhbGciOiJFUzI1NiIsImtpZCI6IjRiNzUxMjc1LTRmZTAtNDk5ZC1iZWYzLWY0NGEwZWE0NTM1NyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3JmaGNodW1xa3h1cWNjY21kc25zLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI2MTI5MjRmNi00MTc3LTQ1ZmUtYjNkNi1lMDc3MmQ4NjA2ZjMiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc0MDE5MTEzLCJpYXQiOjE3NzQwMTU1MTMsImVtYWlsIjoiY2FtaWxsZS5icmlhbmNlYXVAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCIsImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1gyZHRSLWV4SU5tWDBncEFIQXA2em91ZEJYSTNGNWlYQXBWZ0ZLNWlZeERLWUhnPXM5Ni1jIiwiZW1haWwiOiJjYW1pbGxlLmJyaWFuY2VhdUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiY2FtaWxsZSBicmlhbmNlYXUiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiY2FtaWxsZSBicmlhbmNlYXUiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLWDJkdFItZXhJTm1YMGdwQUhBcDZ6b3VkQlhJM0Y1aVhBcFZnRks1aVl4REtZSGc9czk2LWMiLCJwcm92aWRlcl9pZCI6IjEwNzEwMTI5MTkzNzA4NzEzMjk3NCIsInN1YiI6IjEwNzEwMTI5MTkzNzA4NzEzMjk3NCJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6Im90cCIsInRpbWVzdGFtcCI6MTc3NDAxNTUxM31dLCJzZXNzaW9uX2lkIjoiMmEwZjcwMGYtNmFiMy00MDg1LTk3YTYtMDY2MjgxMWVhZDYwIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.Yeik4EVaG3IDcZ845k4O4r43tc8iMvZjHJBzmlsr2Nk4j0lM9xbJzJAPouroLEbe3SEAgvTspNtIIa6HKTQNpw&expires_at=1774019113&expires_in=3600&refresh_token=ixnxx4newb4h&sb=&token_type=bearer&type=recovery
-  // 🔥 récupérer le hash au lieu de search
-  const hash = window.location.hash.substring(1); // enlève le "#"
-  const params = new URLSearchParams(hash);
-
-  const access_token = params.get('access_token');
-  const refresh_token = params.get('refresh_token');
-
-  console.log("ACCESS:", access_token);
-  console.log("REFRESH:", refresh_token);
-
-  window.location.href =
-    `exp://192.168.1.15:8081/(tabs)/account/resetpassword` +
-    `?access_token=${access_token}&refresh_token=${refresh_token}`;
-
-    console.log(window.location.href);
-</script> -->
-
-<!-- https://camillebrianceau.github.io/BabyCitiesWebsite/
-https://camillebrianceau.github.io/BabyCitiesWebsite/test
-https://camillebrianceau.github.io/BabyCitiesWebsite/test
-
-https://camillebrianceau.github.io/BabyCitiesWebsite/test?access_token=924dd7fbb38005f30ca0f77cdae59821f2697dbd8ab748c3f0ca587b -->
-
-<!-- https://rfhchumqkxuqcccmdsns.supabase.co/auth/v                        1/verify?token=ae732a8cda215565e5733f521f9c4ac38af936673cd9fa7db05dd5e0&type=recovery&redirect_to=https://camillebrianceau.github.io/BabyCitiesWebsite/test -->
