@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss ./src/styles.css -o ./public/dist/styles.css",
-    "watch": "onchange 'tailwind.config.js' './public/**/*.html' './src/**/*.css' -- npm run build",
-    "prod": "NODE_ENV=production postcss ./src/styles.css -o ./public/dist/styles.css"
+    "build": "postcss ./src/styles.css -o ./dist/styles.css",
+    "watch": "onchange 'tailwind.config.js' './*.html' './src/**/*.css' -- npm run build",
+    "prod": "NODE_ENV=production postcss ./src/styles.css -o ./dist/styles.css"
   },
   "keywords": [],
   "author": "",

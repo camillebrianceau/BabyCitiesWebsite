@@ -70,8 +70,30 @@
       font-weight: 400;
     }
 
+    .growing-underline {
+      position: relative;
+    }
+
     .growing-underline::after {
-      background-color: #ea6344;
+      content: "";
+      position: absolute;
+      left: -0.02rem;
+      right: -0.08rem;
+      bottom: -0.48rem;
+      height: 0.62rem;
+      background: transparent;
+      border-bottom: 0.2rem solid #ea6344;
+      border-radius: 0 0 999px 999px;
+      clip-path: ellipse(52% 68% at 50% 32%);
+      transform: scaleX(0) rotate(-2.4deg);
+      transform-origin: left center;
+      transition: transform 180ms ease;
+      pointer-events: none;
+    }
+
+    .growing-underline:hover::after,
+    .growing-underline:focus-within::after {
+      transform: scaleX(1) rotate(-2.4deg);
     }
 
     .hero-title {
@@ -481,6 +503,14 @@
       font-size: 1.02rem;
     }
 
+    .story-finder-topline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
     .story-finder-count {
       display: inline-flex;
       align-items: center;
@@ -630,10 +660,10 @@
     .stats-section {
       position: relative;
       z-index: 4;
-      margin-top: -3.4rem;
-      margin-bottom: -5.2rem;
+      /* margin-top: -3.4rem; */
+      /* margin-bottom: -4.65rem; */
       padding-top: 5.4rem;
-      padding-bottom: 1.4rem;
+      padding-bottom: 0;
     }
 
     .stats-shell {
@@ -657,13 +687,17 @@
       display: grid;
       gap: 0.75rem;
       width: 100%;
+      position: relative;
+      z-index: 3;
+      margin-bottom: -1.9rem;
     }
 
     .stats-card {
       padding: 1rem 0.9rem;
       border-radius: 1.25rem;
-      background: rgba(255, 255, 255, 0.78);
+      background: #ffffff;
       border: 1px solid rgba(35, 49, 61, 0.06);
+      box-shadow: 0 18px 34px rgba(35, 49, 61, 0.08);
       text-align: center;
     }
 
@@ -1033,11 +1067,19 @@
 
       .stats-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: -3.05rem;
       }
 
       .reviews-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         margin-bottom: -4.5rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .story-finder-topline {
+        flex-wrap: wrap;
+        white-space: normal;
       }
     }
   </style>
@@ -1052,16 +1094,16 @@
       </a>
     </div>
     <ul class="font-montserrat items-center hidden md:flex">
+      <li class="growing-underline mx-3">
+        <a href="#how-it-works">How it works</a>
+      </li>
       <li class="mx-3 ">
-        <a class="growing-underline" href="about">
+        <a class="growing-underline" href="#about">
           About
         </a>
       </li>
       <li class="growing-underline mx-3">
-        <a href="howitworks">How it works</a>
-      </li>
-      <li class="growing-underline mx-3">
-        <a href="contact">Contact</a>
+        <a href="#footer">Contact</a>
       </li>
     </ul>
     <div class="font-montserrat hidden md:block">
@@ -1079,13 +1121,13 @@
     </div>
     <ul class="font-montserrat flex flex-col mx-8 my-24 items-center text-3xl">
       <li class="my-6">
-        <a href="about">About</a>
+        <a href="#how-it-works">How it works</a>
       </li>
       <li class="my-6">
-        <a href="howitworks">How it works</a>
+        <a href="#about">About</a>
       </li>
       <li class="my-6">
-        <a href="contact">Contact</a>
+        <a href="#footer">Contact</a>
       </li>
     </ul>
   </div>
@@ -1180,7 +1222,7 @@
   </section>
 
   <!-- How it works -->
-  <section class="bg-red text-white sectionSize">
+  <section id="how-it-works" class="bg-red text-white sectionSize pt-40 pb-12 md:pt-52 md:pb-20">
     <div>
       <h2 class="secondaryTitle section-title-hand bg-underline2 bg-100%">How it works</h2>
     </div>
@@ -1254,7 +1296,7 @@
   </section>
 
   <!-- In between -->
-  <section class="sectionSize bg-secondary story-section-overlap">
+  <section id="about" class="sectionSize bg-secondary story-section-overlap">
     <div class="story-panel">
       <div>
         <h2 class="section-title-hand text-4xl md:text-5xl leading-tight mb-4">Made for easier outings.</h2>
@@ -1267,30 +1309,32 @@
           place feels easier, more reliable and more reassuring.
         </p>
         <div class="story-finder-line font-montserrat" data-story-finder>
-          <span>You're searching for</span>
-          <details class="story-inline-picker" data-story-type-picker>
-            <summary class="story-inline-picker-trigger">
-              <img class="story-inline-picker-icon" data-story-type-icon
-                src="dist/assetsbis/images/map-markers/points-png/restaurant-icon.png" alt="" />
-              <span data-story-type-label>restaurants</span>
-              <span class="story-inline-picker-caret">⌄</span>
-            </summary>
-            <div class="story-inline-picker-menu" data-story-type-menu></div>
-          </details>
-          <span>with</span>
-          <details class="story-inline-picker" data-story-filter-picker>
-            <summary class="story-inline-picker-trigger">
-              <img class="story-inline-picker-icon" data-story-filter-icon
-                src="dist/assetsbis/images/babyfilters/buggy-red.png" alt="" />
-              <span data-story-filter-label>stroller access</span>
-              <span class="story-inline-picker-caret">⌄</span>
-            </summary>
-            <div class="story-inline-picker-menu" data-story-filter-menu></div>
-          </details>
+          <span class="story-finder-topline">
+            <span>You're searching for</span>
+            <details class="story-inline-picker" data-story-type-picker>
+              <summary class="story-inline-picker-trigger">
+                <img class="story-inline-picker-icon" data-story-type-icon
+                  src="dist/assetsbis/images/map-markers/points-png/restaurant-icon.png" alt="" />
+                <span data-story-type-label>restaurants</span>
+                <span class="story-inline-picker-caret">⌄</span>
+              </summary>
+              <div class="story-inline-picker-menu" data-story-type-menu></div>
+            </details>
+            <span>with</span>
+            <details class="story-inline-picker" data-story-filter-picker>
+              <summary class="story-inline-picker-trigger">
+                <img class="story-inline-picker-icon" data-story-filter-icon
+                  src="dist/assetsbis/images/babyfilters/buggy-red.png" alt="" />
+                <span data-story-filter-label>stroller access</span>
+                <span class="story-inline-picker-caret">⌄</span>
+              </summary>
+              <div class="story-inline-picker-menu" data-story-filter-menu></div>
+            </details>
+          </span>
           <span class="story-finder-break"></span>
-          <span>you can find</span>
+          <span>you can find </span>
           <strong class="font-canda story-finder-count" data-story-count>-</strong>
-          <span>in our app.</span>
+          <span> with our app.</span>
         </div>
       </div>
       <div class="story-visual font-montserrat">
@@ -1593,14 +1637,11 @@
   </section>
 
   <!-- Footer -->
-  <section class="bg-red sectionSize">
+  <section id="footer" class="bg-red sectionSize">
     <div class="mb-4">
       <img src='dist/assetsbis/images/logo-long/logo.png' alt="BabyCities" class="h-10 footer-wordmark-beige" />
     </div>
     <div class="flex items-center mb-6">
-      <a href="#">
-        <img src='dist/assets/logos/Facebook.svg' alt="Facebook logo" class="mx-1" />
-      </a>
       <a class="footer-icon-link mx-1" href="https://www.linkedin.com/company/babycities/?viewAsMember=true"
         target="_blank" rel="noreferrer" aria-label="LinkedIn">
         <span class="font-montserrat font-semibold text-lg leading-none">in</span>
