@@ -340,6 +340,17 @@
       object-position: 56% 28%;
     }
 
+    .how-visual-star {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 241, 235, 0.95));
+    }
+
+    .how-visual-star span {
+      font-size: 2.5rem;
+      line-height: 1;
+      color: #f2a64a;
+      transform: translateY(-0.02em);
+    }
+
     .how-visual-badge {
       position: absolute;
       right: 0.35rem;
@@ -473,9 +484,14 @@
     .story-finder-count {
       display: inline-flex;
       align-items: center;
-      font-size: 1.7rem;
+      font-size: 2.9rem;
       line-height: 1;
       color: #ea6344;
+    }
+
+    .story-finder-break {
+      flex-basis: 100%;
+      height: 0;
     }
 
     .story-inline-picker {
@@ -613,8 +629,11 @@
 
     .stats-section {
       position: relative;
+      z-index: 4;
+      margin-top: -3.4rem;
+      margin-bottom: -5.2rem;
       padding-top: 5.4rem;
-      padding-bottom: 4.4rem;
+      padding-bottom: 1.4rem;
     }
 
     .stats-shell {
@@ -724,6 +743,10 @@
     .filters-card h3,
     .filters-card p {
       color: white;
+    }
+
+    .filters-card h3 {
+      margin-bottom: 0.85rem;
     }
 
     .filters-title {
@@ -1194,9 +1217,8 @@
         </p>
       </div>
       <div class="how-card flex flex-col items-center text-center">
-        <div class="how-visual how-visual-screen how-visual-review">
-          <img src="dist/assets/babycities/screen-list.png" alt="BabyCities reviews view" />
-          <span class="how-visual-badge" aria-hidden="true">★</span>
+        <div class="how-visual how-visual-star" aria-hidden="true">
+          <span>★</span>
         </div>
         <h3 class="font-montserrat font-medium text-xl mb-2">Rate &amp; review</h3>
         <p class="text-center font-montserrat how-copy">
@@ -1265,7 +1287,8 @@
             </summary>
             <div class="story-inline-picker-menu" data-story-filter-menu></div>
           </details>
-          <span>, you can find</span>
+          <span class="story-finder-break"></span>
+          <span>you can find</span>
           <strong class="font-canda story-finder-count" data-story-count>-</strong>
           <span>in our app.</span>
         </div>
@@ -1284,7 +1307,7 @@
     <div class="filters-heading-wrap">
       <h2 class="secondaryTitle section-title-hand filters-title">Baby filters</h2>
       <p class="filters-intro font-montserrat">
-        A quick way to understand if a place will actually work for your outing before you head there.
+        Baby filters help you check the small but essential details that make outings with babies and young kids much easier. Instead of guessing once you arrive, you can quickly see whether a place has the practical amenities your family actually needs, from stroller access and changing tables to high chairs, nursing areas or a microwave.
       </p>
     </div>
     <div class="filters-grid">
