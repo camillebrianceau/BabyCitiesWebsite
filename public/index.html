@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BabyCities | Family outings made easier</title>
+  <meta name="description"
+    content="BabyCities helps parents find family-friendly places and practical baby amenities for easier outings." />
+  <link rel="icon" type="image/png" href="dist/assetsbis/images/logo/favicon.png" />
+  <link rel="stylesheet" href="dist/styles.css" />
+  <script src="dist/supabase-config.js"></script>
+  <script src="dist/script.js"></script>
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("dist/assetsbis/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("dist/assetsbis/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("dist/assetsbis/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("dist/assetsbis/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "BabyCitiesHeading";
+      src: url("dist/assetsbis/fonts/canda-tawa-regular/canda-tawa-regular.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    .font-montserrat,
+    .font-pt-serif {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .font-canda {
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+    }
+
+    .section-title-hand {
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-weight: 400;
+    }
+
+    .secondaryTitle {
+      font-size: 2.7rem;
+      line-height: 1.05;
+    }
+
+    .handwritten-number {
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-weight: 400;
+    }
+
+    .growing-underline::after {
+      background-color: #ea6344;
+    }
+
+    .hero-title {
+      line-height: 1.02;
+    }
+
+    .hero-title-line {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .hero-discover {
+      display: inline-block;
+      font-size: 2.9rem;
+      font-weight: 400;
+      line-height: 0.95;
+      margin-bottom: 0;
+    }
+
+    .babycities-word {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.015em;
+      font-size: 4.25rem;
+      line-height: 0.95;
+    }
+
+    .babycities-word span {
+      display: inline-block;
+    }
+
+    .hero-copy {
+      max-width: 34rem;
+      line-height: 1.8;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.45rem;
+      width: 100%;
+      max-width: 34rem;
+      margin: 0 auto;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-phone {
+      width: min(46%, 13rem);
+      padding: 0.6rem;
+      border-radius: 1.8rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 232, 223, 0.94));
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 24px 48px rgba(35, 49, 61, 0.12);
+    }
+
+    .hero-phone img {
+      display: block;
+      width: 100%;
+      border-radius: 1.35rem;
+    }
+
+    .hero-phone-left {
+      transform: rotate(-8deg) translateY(0.7rem);
+    }
+
+    .hero-phone-right {
+      width: min(52%, 14.75rem);
+      transform: rotate(8deg) translateY(0.2rem);
+    }
+
+    .hero-app-mark {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 6.2rem;
+      height: 6.2rem;
+      padding: 1rem;
+      border-radius: 1.45rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 232, 223, 0.94));
+      border: 1px solid rgba(35, 49, 61, 0.08);
+      box-shadow: 0 18px 36px rgba(35, 49, 61, 0.12);
+      z-index: 2;
+    }
+
+    .hero-app-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hero-pin {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      padding: 0.35rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 30px rgba(35, 49, 61, 0.12);
+      z-index: 3;
+    }
+
+    .hero-pin img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hero-pin-cafe {
+      top: 1.6rem;
+      right: 0.6rem;
+      transform: rotate(7deg);
+    }
+
+    .hero-pin-park {
+      left: 1rem;
+      bottom: 4.8rem;
+      transform: rotate(-9deg);
+    }
+
+    .letter-b,
+    .letter-t {
+      color: #ea6244;
+    }
+
+    .letter-a,
+    .letter-i-soft {
+      color: #fbaaa8;
+    }
+
+    .letter-b2,
+    .letter-s {
+      color: #f0c140;
+    }
+
+    .letter-y,
+    .letter-e {
+      color: #439e77;
+    }
+
+    .letter-c {
+      color: #9ac1e7;
+    }
+
+    .letter-i {
+      color: #0667a7;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid rgba(35, 49, 61, 0.12);
+      box-shadow: 0 10px 22px rgba(35, 49, 61, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .download-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px rgba(35, 49, 61, 0.12);
+    }
+
+    .download-link svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex: 0 0 auto;
+    }
+
+    .download-link-ios:hover {
+      background-color: #d95739;
+    }
+
+    .download-link-ios {
+      border-color: rgba(217, 87, 57, 0.18);
+    }
+
+    .download-link-android:hover {
+      background-color: rgba(234, 99, 68, 0.08);
+    }
+
+    .download-link-android {
+      background: rgba(255, 255, 255, 0.72);
+      border-color: rgba(35, 49, 61, 0.12);
+    }
+
+    .how-step {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 9999px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.9rem;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5) 35%, transparent 36%),
+        linear-gradient(135deg, #ffe5de 0%, #f7f1eb 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 14px 28px rgba(111, 45, 28, 0.18);
+      color: #ea6344;
+      font-size: 1.35rem;
+    }
+
+    .how-card {
+      position: relative;
+      padding: 1.4rem 1.1rem 1.2rem;
+      border-radius: 1.75rem;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .how-grid {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .how-visual {
+      position: relative;
+      width: 5.6rem;
+      height: 5.6rem;
+      margin-bottom: 1rem;
+      border-radius: 1.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 241, 235, 0.92));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: 0 16px 30px rgba(111, 45, 28, 0.16);
+    }
+
+    .how-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .how-visual-icon img {
+      width: 62%;
+      height: 62%;
+      object-fit: contain;
+    }
+
+    .how-visual-screen img {
+      object-fit: cover;
+    }
+
+    .how-visual-map img {
+      object-position: 58% 34%;
+      transform: scale(2.08);
+    }
+
+    .how-visual-review img {
+      object-position: 56% 28%;
+    }
+
+    .how-visual-badge {
+      position: absolute;
+      right: 0.35rem;
+      bottom: 0.35rem;
+      min-width: 1.5rem;
+      height: 1.5rem;
+      padding: 0 0.35rem;
+      border-radius: 9999px;
+      background: #ea6344;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      line-height: 1;
+      box-shadow: 0 8px 16px rgba(130, 45, 27, 0.2);
+    }
+
+    .how-visual-duo {
+      gap: 0.35rem;
+      padding: 0.6rem;
+    }
+
+    .how-visual-duo img {
+      width: calc(50% - 0.18rem);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .how-visual-community {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.28rem;
+      padding: 0.72rem;
+    }
+
+    .how-visual-community img {
+      width: 1.58rem;
+      height: 1.58rem;
+      object-fit: contain;
+      border-radius: 9999px;
+    }
+
+    .how-copy {
+      max-width: 18rem;
+      line-height: 1.75;
+    }
+
+    .how-arrow {
+      display: none;
+      position: absolute;
+      right: -1.7rem;
+      top: 1rem;
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.78);
+      transform: rotate(6deg);
+    }
+
+    .feature-icon {
+      width: 3.8rem;
+      height: 3.8rem;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .story-section-overlap {
+      position: relative;
+      z-index: 3;
+    }
+
+    .story-panel {
+      width: 100%;
+      display: grid;
+      gap: 1.75rem;
+      align-items: center;
+      padding: 0.5rem 0 0.25rem;
+    }
+
+    .story-copy {
+      max-width: 34rem;
+      line-height: 1.85;
+      color: rgba(35, 49, 61, 0.74);
+    }
+
+    .story-handword {
+      display: inline-block;
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      line-height: 1;
+      font-size: 1.56em;
+      transform: translateY(0.03em);
+    }
+
+    .brand-word {
+      display: inline-block;
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-size: 1.16em;
+      line-height: 1;
+      transform: translateY(0.03em);
+    }
+
+    .story-handword-rose {
+      color: #e98aa8;
+    }
+
+    .story-handword-red {
+      color: #ea6344;
+    }
+
+    .story-handword-gold {
+      color: #f2a64a;
+    }
+
+    .story-handword-green {
+      color: #5c8f84;
+    }
+
+    .story-finder-line {
+      max-width: 40rem;
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+      color: #23313d;
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .story-finder-count {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.7rem;
+      line-height: 1;
+      color: #ea6344;
+    }
+
+    .story-inline-picker {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .story-inline-picker summary {
+      list-style: none;
+    }
+
+    .story-inline-picker summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .story-inline-picker-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 2.55rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(35, 49, 61, 0.1);
+      background: rgba(255, 255, 255, 0.88);
+      color: #23313d;
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-size: 1.34rem;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .story-inline-picker-trigger:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(35, 49, 61, 0.08);
+      border-color: rgba(234, 99, 68, 0.18);
+    }
+
+    .story-inline-picker-icon {
+      width: 1.55rem;
+      height: 1.55rem;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .story-inline-picker-caret {
+      color: #ea6344;
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+
+    .story-inline-picker-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 0.55rem);
+      min-width: 15rem;
+      max-height: 18rem;
+      overflow: auto;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      background: white;
+      border: 1px solid rgba(35, 49, 61, 0.08);
+      box-shadow: 0 22px 38px rgba(35, 49, 61, 0.14);
+      z-index: 12;
+    }
+
+    .story-inline-picker-option {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      width: 100%;
+      min-height: 2.7rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.85rem;
+      background: transparent;
+      border: 0;
+      color: #23313d;
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-size: 1.24rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 160ms ease;
+    }
+
+    .story-inline-picker-option:hover {
+      background: rgba(234, 99, 68, 0.08);
+    }
+
+    .story-inline-picker-option img {
+      width: 1.55rem;
+      height: 1.55rem;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .story-babyscore {
+      display: inline-flex;
+      gap: 0.02em;
+      vertical-align: baseline;
+    }
+
+    .story-babyscore span {
+      display: inline-block;
+    }
+
+
+    .story-visual {
+      position: relative;
+      min-height: 27rem;
+    }
+
+    .story-device {
+      position: absolute;
+      border-radius: 2rem;
+      padding: 0.75rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 232, 223, 0.94));
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 24px 48px rgba(35, 49, 61, 0.12);
+    }
+
+    .story-device img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 1.4rem;
+    }
+
+    .story-device-main {
+      width: min(100%, 19.5rem);
+      top: -3.6rem;
+      right: 44%;
+      transform: translateX(50%) rotate(8deg);
+    }
+
+    .stats-section {
+      position: relative;
+      padding-top: 5.4rem;
+      padding-bottom: 4.4rem;
+    }
+
+    .stats-shell {
+      width: 100%;
+      max-width: 46rem;
+      margin: 0 auto;
+    }
+
+    .stats-header {
+      max-width: 32rem;
+      margin: 0 auto 0.95rem;
+      text-align: center;
+    }
+
+    .stats-title {
+      color: #23313d;
+      margin-bottom: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .stats-card {
+      padding: 1rem 0.9rem;
+      border-radius: 1.25rem;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(35, 49, 61, 0.06);
+      text-align: center;
+    }
+
+    .stats-value {
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stats-value-places {
+      color: #e98aa8;
+    }
+
+    .stats-value-countries {
+      color: #f2a64a;
+    }
+
+    .stats-value-users {
+      color: #5c8f84;
+    }
+
+    .stats-label {
+      color: #23313d;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    .stats-status {
+      margin-top: 0.8rem;
+      text-align: center;
+      color: rgba(35, 49, 61, 0.56);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .filters-section {
+      position: relative;
+      background: linear-gradient(180deg, #ea6344 0%, #e25e40 100%);
+      color: white;
+    }
+
+    .filters-heading-wrap {
+      position: relative;
+      padding-top: 5.75rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .filters-grid {
+      display: grid;
+      gap: 1.7rem;
+      justify-items: center;
+    }
+
+    .filters-intro {
+      max-width: 35rem;
+      margin: 0 auto 1.85rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.75;
+    }
+
+    .filters-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 26rem;
+      padding: 1.35rem 1.45rem;
+      min-height: 8.9rem;
+      border-radius: 1.4rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 18px 34px rgba(125, 40, 20, 0.14);
+    }
+
+    .filters-card h3,
+    .filters-card p {
+      color: white;
+    }
+
+    .filters-title {
+      position: relative;
+      background-image: none;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .filters-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0.15rem;
+      width: 8.5rem;
+      height: 1.3rem;
+      transform: translateX(-50%);
+      background: url("dist/assets/Underline3.svg") center / contain no-repeat;
+      filter: brightness(0) invert(1);
+    }
+
+    .filters-scribble {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.92);
+      font-family: "BabyCitiesHeading", "Poppins", sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      z-index: 2;
+    }
+
+    .filters-scribble-left {
+      top: 2.2rem;
+      left: 2rem;
+      transform: rotate(-8deg);
+    }
+
+    .filters-scribble-right {
+      top: 6rem;
+      right: 2rem;
+      transform: rotate(8deg);
+    }
+
+    .filters-card-extra {
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.16);
+      border-style: dashed;
+    }
+
+    .filters-card-extra h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .filters-card-extra a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .footer-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      color: white;
+    }
+
+    .footer-icon-link svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    .reviews-section {
+      position: relative;
+      padding-top: 6rem;
+      padding-bottom: 2rem;
+      z-index: 2;
+    }
+
+    .reviews-intro {
+      max-width: 38rem;
+      margin: 0 auto 2.25rem;
+      text-align: center;
+    }
+
+    .reviews-copy {
+      color: rgba(35, 49, 61, 0.72);
+      line-height: 1.75;
+    }
+
+    .reviews-grid {
+      display: grid;
+      gap: 1.2rem;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .review-card {
+      position: relative;
+      height: 100%;
+      padding: 1.65rem;
+      border-radius: 1.6rem;
+      background: white;
+      border: 1px solid rgba(35, 49, 61, 0.08);
+      box-shadow: 0 20px 40px rgba(35, 49, 61, 0.06);
+      overflow: hidden;
+    }
+
+    .review-stars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.22rem;
+      color: #f0c140;
+      margin-bottom: 0.95rem;
+    }
+
+    .review-stars svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      display: block;
+      fill: currentColor;
+    }
+
+    .review-quote {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #23313d;
+      margin-bottom: 1.2rem;
+    }
+
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .review-avatar {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      background: rgba(234, 99, 68, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .review-avatar img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .review-name {
+      color: #23313d;
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .review-context {
+      color: rgba(35, 49, 61, 0.6);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .faq-question {
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #23313d;
+      background: rgba(255, 255, 255, 0.84);
+      border-radius: 1rem;
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: 0 16px 30px rgba(109, 36, 19, 0.12);
+    }
+
+    .footer-wordmark-beige {
+      filter: brightness(0) saturate(100%) invert(93%) sepia(14%) saturate(314%) hue-rotate(320deg) brightness(102%) contrast(95%);
+    }
+
+    .footer-meta-links {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      color: white;
+    }
+
+    .footer-meta-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-meta-links a:hover {
+      color: white;
+    }
+
+    .site-nav {
+      box-shadow: 0 12px 28px rgba(35, 49, 61, 0.08);
+    }
+
+    @media (min-width: 768px) {
+      .hero-discover {
+        font-size: 3.5rem;
+      }
+
+      .secondaryTitle {
+        font-size: 3.25rem;
+      }
+
+      .babycities-word {
+        font-size: 5rem;
+      }
+
+      .hero-title-line {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
+
+      .hero-visual {
+        max-width: 40rem;
+        gap: 0.65rem;
+        padding-bottom: 4.5rem;
+      }
+
+      .hero-phone {
+        width: min(38%, 14.5rem);
+      }
+
+      .hero-phone-right {
+        width: min(48%, 17.5rem);
+      }
+
+      .hero-pin {
+        width: 3.4rem;
+        height: 3.4rem;
+      }
+
+      .hero-pin-cafe {
+        top: 2rem;
+        right: -0.35rem;
+      }
+
+      .hero-pin-park {
+        left: 0.2rem;
+        bottom: 5.2rem;
+      }
+
+      .story-panel {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      }
+
+      .story-section-overlap {
+        margin-bottom: -4.5rem;
+      }
+
+      .story-visual {
+        transform: translateY(4.25rem);
+        min-height: 31rem;
+      }
+
+      .filters-heading-wrap {
+        padding-top: 9rem;
+      }
+
+      .how-arrow {
+        display: block;
+      }
+
+      .how-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem 1rem;
+      }
+
+      .filters-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: -4.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <!-- Navigation -->
+  <nav class="site-nav fixed flex justify-between py-6 w-full lg:px-48 md:px-12 px-4 content-center bg-secondary z-10">
+    <div class="flex items-center">
+      <a href="#top" aria-label="Back to top">
+        <img src='dist/assetsbis/images/logo-long/logo.png' alt="BabyCities logo" class="h-12" />
+      </a>
+    </div>
+    <ul class="font-montserrat items-center hidden md:flex">
+      <li class="mx-3 ">
+        <a class="growing-underline" href="about">
+          About
+        </a>
+      </li>
+      <li class="growing-underline mx-3">
+        <a href="howitworks">How it works</a>
+      </li>
+      <li class="growing-underline mx-3">
+        <a href="contact">Contact</a>
+      </li>
+    </ul>
+    <div class="font-montserrat hidden md:block">
+      <a href="#download-options" class="inline-block py-2 px-4 text-white bg-red rounded-3xl">
+        Download the app
+      </a>
+    </div>
+    <div id="showMenu" class="md:hidden">
+      <img src='dist/assets/logos/Menu.svg' alt="Menu icon" />
+    </div>
+  </nav>
+  <div id='mobileNav' class="hidden px-4 py-6 fixed top-0 left-0 h-full w-full bg-secondary z-20 animate-fade-in-down">
+    <div id="hideMenu" class="flex justify-end">
+      <img src='dist/assets/logos/Cross.svg' alt="" class="h-16 w-16" />
+    </div>
+    <ul class="font-montserrat flex flex-col mx-8 my-24 items-center text-3xl">
+      <li class="my-6">
+        <a href="about">About</a>
+      </li>
+      <li class="my-6">
+        <a href="howitworks">How it works</a>
+      </li>
+      <li class="my-6">
+        <a href="contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section
+    class="pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-secondary">
+    <div class="md:flex-1 md:mr-10">
+      <h1 class="font-canda hero-title mb-7">
+        <span class="hero-title-line">
+          <span class="hero-discover">Discover</span>
+          <span class="babycities-word">
+            <span class="letter-b">B</span>
+            <span class="letter-a">a</span>
+            <span class="letter-b2">b</span>
+            <span class="letter-y">y</span>
+            <span class="letter-c">C</span>
+            <span class="letter-i">i</span>
+            <span class="letter-t">t</span>
+            <span class="letter-i-soft">i</span>
+            <span class="letter-e">e</span>
+            <span class="letter-s">s</span>
+          </span>
+        </span>
+      </h1>
+      <p class="font-montserrat font-normal mb-7 hero-copy">
+        Made for parents on the go. Find baby-friendly places in your city,
+        check the useful amenities before you go in, and share your own
+        experiences with other families.
+      </p>
+      <div id="download-options" class="font-montserrat">
+        <a class="download-link download-link-ios bg-red px-6 py-4 rounded-lg text-white mr-2 mb-2"
+          href="https://apps.apple.com/us/app/babycities/id6449683883" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M16.46 12.9c.03 3.18 2.79 4.24 2.82 4.26-.02.07-.43 1.5-1.4 2.97-.84 1.28-1.72 2.55-3.1 2.58-1.35.03-1.78-.8-3.33-.8-1.55 0-2.03.78-3.3.83-1.33.05-2.35-1.33-3.2-2.6C3.23 18.3 2 15.05 2.03 11.96c.02-2.44 1.33-3.74 2.64-4.37 1.37-.66 2.51-.68 3.3-.68 1.34 0 2.6.9 3.49.9.86 0 2.47-1.1 4.16-.94.71.03 2.7.29 3.97 2.13-.1.06-2.37 1.38-2.33 3.9Zm-2.31-7.5c.7-.84 1.17-2.01 1.04-3.17-1 .04-2.2.67-2.92 1.5-.65.75-1.21 1.94-1.06 3.08 1.11.09 2.24-.56 2.94-1.4Z" />
+          </svg>
+          <span>Download on iOS</span>
+        </a>
+        <a class="download-link download-link-android px-6 py-4 rounded-lg"
+          href="https://play.google.com/store/apps/details?id=app.babycities" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 9h8a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Z"></path>
+            <path d="M9 9a3 3 0 0 1 6 0"></path>
+            <path d="M9 4.5 7 6.5"></path>
+            <path d="M15 4.5 17 6.5"></path>
+            <path d="M9 18v2"></path>
+            <path d="M15 18v2"></path>
+            <path d="M6 11H4"></path>
+            <path d="M20 11h-2"></path>
+            <circle cx="10.5" cy="12.5" r="0.7" fill="currentColor" stroke="none"></circle>
+            <circle cx="13.5" cy="12.5" r="0.7" fill="currentColor" stroke="none"></circle>
+          </svg>
+          <span>Download on Android</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex justify-around md:block mt-8 md:mt-0 md:flex-1">
+      <div class="hero-visual" aria-label="BabyCities app screens">
+        <div class="hero-phone hero-phone-left">
+          <img src="dist/assets/babycities/screen-list.png" alt="BabyCities list screen" />
+        </div>
+        <div class="hero-app-mark">
+          <img src="dist/assets/babycities/logo-mark.png" alt="BabyCities app logo" />
+        </div>
+        <div class="hero-phone hero-phone-right">
+          <img src="dist/assets/babycities/screen-map.png" alt="BabyCities map screen" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="sectionSize bg-secondary stats-section" data-stats-section>
+    <div class="stats-shell">
+      <div class="stats-grid">
+        <article class="stats-card">
+          <div class="stats-value stats-value-places font-canda" data-stat-value="places">-</div>
+          <div class="stats-label font-montserrat">places shared</div>
+        </article>
+        <article class="stats-card">
+          <div class="stats-value stats-value-countries font-canda" data-stat-value="countries">-</div>
+          <div class="stats-label font-montserrat">countries covered</div>
+        </article>
+        <article class="stats-card">
+          <div class="stats-value stats-value-users font-canda" data-stat-value="users">-</div>
+          <div class="stats-label font-montserrat">users in the community</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="bg-red text-white sectionSize">
+    <div>
+      <h2 class="secondaryTitle section-title-hand bg-underline2 bg-100%">How it works</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-screen how-visual-map">
+          <img src="dist/assets/babycities/screen-map.png" alt="Map view in BabyCities" />
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Explore nearby</h3>
+        <p class="text-center font-montserrat how-copy">
+          Explore around you and discover kids-friendly places before heading
+          out.
+        </p>
+      </div>
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-icon">
+          <img src="dist/assetsbis/images/map-markers/points-png/favorites-icon.png" alt="Favorites in BabyCities" />
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Save favorites</h3>
+        <p class="text-center font-montserrat how-copy">
+          Keep your best spots close by and build your own shortlist for easy
+          family outings.
+        </p>
+      </div>
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-duo">
+          <img src="dist/assetsbis/images/babyfilters/changer-red.png" alt="Changing table filter" />
+          <img src="dist/assetsbis/images/babyfilters/buggy-red.png" alt="Stroller-friendly filter" />
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Filter your search</h3>
+        <p class="text-center font-montserrat how-copy">
+          Filter according to your needs, whether it is baby amenities or the
+          type of place you want.
+        </p>
+      </div>
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-screen how-visual-review">
+          <img src="dist/assets/babycities/screen-list.png" alt="BabyCities reviews view" />
+          <span class="how-visual-badge" aria-hidden="true">★</span>
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Rate &amp; review</h3>
+        <p class="text-center font-montserrat how-copy">
+          Rate places and leave practical reviews to help other parents know
+          what to expect.
+        </p>
+      </div>
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-icon">
+          <img src="dist/assetsbis/images/map-markers/points-png/restaurant-icon.png" alt="Add new family-friendly places" />
+          <span class="how-visual-badge" aria-hidden="true">+</span>
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Add new places</h3>
+        <p class="text-center font-montserrat how-copy">
+          Add useful new places to the map when you find somewhere that works
+          well for families.
+        </p>
+      </div>
+      <div class="how-card flex flex-col items-center text-center">
+        <div class="how-visual how-visual-community">
+          <img src="dist/assetsbis/images/avatar/3.png" alt="Parent avatar" />
+          <img src="dist/assetsbis/images/avatar/11.png" alt="Parent avatar" />
+          <img src="dist/assetsbis/images/avatar/18.png" alt="Parent avatar" />
+          <img src="dist/assetsbis/images/avatar/7.png" alt="Parent avatar" />
+        </div>
+        <h3 class="font-montserrat font-medium text-xl mb-2">Grow the community</h3>
+        <p class="text-center font-montserrat how-copy">
+          Share the app with other parents and help <span class="brand-word">BabyCities</span> grow into an
+          even more useful community.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- In between -->
+  <section class="sectionSize bg-secondary story-section-overlap">
+    <div class="story-panel">
+      <div>
+        <h2 class="section-title-hand text-4xl md:text-5xl leading-tight mb-4">Made for easier outings.</h2>
+        <p class="font-montserrat story-copy">
+          With <span class="story-handword story-handword-rose">baby filters</span> and
+          <span class="story-handword story-handword-gold">place types</span>, you can find a spot that fits
+          your needs around you or ahead of time when planning a trip. Thanks
+          to the <span class="story-handword story-babyscore" aria-label="BabyScore"><span class="letter-b">B</span><span class="letter-a">a</span><span class="letter-b2">b</span><span class="letter-y">y</span><span class="letter-c">S</span><span class="letter-i">c</span><span class="letter-t">o</span><span class="letter-i-soft">r</span><span class="letter-e">e</span></span> and
+          <span class="story-handword story-handword-green">reviews</span> shared by the community, choosing a
+          place feels easier, more reliable and more reassuring.
+        </p>
+        <div class="story-finder-line font-montserrat" data-story-finder>
+          <span>You're searching for</span>
+          <details class="story-inline-picker" data-story-type-picker>
+            <summary class="story-inline-picker-trigger">
+              <img class="story-inline-picker-icon" data-story-type-icon
+                src="dist/assetsbis/images/map-markers/points-png/restaurant-icon.png" alt="" />
+              <span data-story-type-label>restaurants</span>
+              <span class="story-inline-picker-caret">⌄</span>
+            </summary>
+            <div class="story-inline-picker-menu" data-story-type-menu></div>
+          </details>
+          <span>with</span>
+          <details class="story-inline-picker" data-story-filter-picker>
+            <summary class="story-inline-picker-trigger">
+              <img class="story-inline-picker-icon" data-story-filter-icon
+                src="dist/assetsbis/images/babyfilters/buggy-red.png" alt="" />
+              <span data-story-filter-label>stroller access</span>
+              <span class="story-inline-picker-caret">⌄</span>
+            </summary>
+            <div class="story-inline-picker-menu" data-story-filter-menu></div>
+          </details>
+          <span>, you can find</span>
+          <strong class="font-canda story-finder-count" data-story-count>-</strong>
+          <span>in our app.</span>
+        </div>
+      </div>
+      <div class="story-visual font-montserrat">
+        <div class="story-device story-device-main">
+          <img src="dist/assets/babycities/screen-map.png" alt="BabyCities map screen" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="sectionSize filters-section">
+    <div class="filters-scribble filters-scribble-left">must-have</div>
+    <div class="filters-heading-wrap">
+      <h2 class="secondaryTitle section-title-hand filters-title">Baby filters</h2>
+      <p class="filters-intro font-montserrat">
+        A quick way to understand if a place will actually work for your outing before you head there.
+      </p>
+    </div>
+    <div class="filters-grid">
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/changer-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Changing table</h3>
+          <p>
+            Quickly spot places where diaper changes are easier and better
+            prepared.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/highchair-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">High chair</h3>
+          <p>
+            Find cafes and restaurants where your baby can actually join the
+            table comfortably.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/microwave-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Microwave</h3>
+          <p>
+            Check where warming a bottle or a meal is possible before you
+            arrive.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/buggy-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Stroller-friendly</h3>
+          <p>
+            Filter for places that stay practical when you arrive with a buggy
+            or stroller.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/nursing-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Nursing area</h3>
+          <p>
+            Filter for places where feeding breaks feel calmer and more
+            comfortable when you are out.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/playground-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Playground</h3>
+          <p>
+            Find spots with a play area nearby when toddlers need to move and
+            reset during the outing.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card">
+        <img src='dist/assetsbis/images/babyfilters/swing-white.png' alt='' class="feature-icon mr-4" />
+        <div>
+          <h3 class="font-semibold text-2xl">Swing / kids play</h3>
+          <p>
+            Spot places that include a small play bonus and make the stop more
+            enjoyable for little ones.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex font-montserrat filters-card filters-card-extra">
+        <div>
+          <h3 class="font-semibold text-2xl">What else?</h3>
+          <p>
+            Contact us if you have other ideas for Baby filters we should add.
+          </p>
+          <p><a href="mailto:hello@babycities.app">hello@babycities.app</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="sectionSize bg-secondary reviews-section">
+    <div class="reviews-intro">
+      <h2 class="secondaryTitle section-title-hand mb-4">What parents say</h2>
+      <p class="font-montserrat reviews-copy">
+        A few of the reasons parents keep coming back to <span class="brand-word">BabyCities</span> before an
+        outing.
+      </p>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+        </div>
+        <p class="review-quote font-montserrat">
+          “Thanks for such a practical and user-friendly app. Get yourself out
+          of a sticky situation with your kid in no time with <span class="brand-word">BabyCities</span> and
+          find the perfect place on the go. #Lifesaver”
+        </p>
+        <div class="review-meta font-montserrat">
+          <div class="review-avatar">
+            <img src="dist/assetsbis/images/avatar/3.png" alt="VDO BEL avatar" />
+          </div>
+          <div>
+            <div class="review-name">VDO BEL</div>
+            <div class="review-context">City baby life saver • 5 stars</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+        </div>
+        <p class="review-quote font-montserrat">
+          “Such an amazing idea for parents and grandparents. I can't believe
+          there wasn't something like this sooner!”
+        </p>
+        <div class="review-meta font-montserrat">
+          <div class="review-avatar">
+            <img src="dist/assetsbis/images/avatar/11.png" alt="Mikayla Reid avatar" />
+          </div>
+          <div>
+            <div class="review-name">Mikayla Reid</div>
+            <div class="review-context">5 stars</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3.8c.2 0 .4.1.5.3l2.2 4.5 5 .7c.5.1.7.7.3 1l-3.6 3.5.9 4.9c.1.5-.4.9-.9.7L12 17l-4.4 2.4c-.5.2-1-.2-.9-.7l.9-4.9-3.6-3.5c-.4-.4-.2-.9.3-1l5-.7 2.2-4.5c.1-.2.3-.3.5-.3Z" /></svg>
+        </div>
+        <p class="review-quote font-montserrat">
+          “Thanks for such a practical and user-friendly app. <span class="brand-word">BabyCities</span> helps
+          you find the right place quickly when you are out with kids.”
+        </p>
+        <div class="review-meta font-montserrat">
+          <div class="review-avatar">
+            <img src="dist/assetsbis/images/avatar/18.png" alt="BabyCities community avatar" />
+          </div>
+          <div>
+            <div class="review-name"><span class="brand-word">BabyCities</span> users</div>
+            <div class="review-context">Parent community feedback</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ  -->
+  <section class="sectionSize items-start pt-16 md:pt-56 bg-red text-white">
+    <div>
+      <h2 class="secondaryTitle section-title-hand bg-highlight3 p-10 mb-0 bg-center bg-100%">
+        FAQ
+      </h2>
+    </div>
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          Is <span class="brand-word">BabyCities</span> only useful in one city?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        No. <span class="brand-word">BabyCities</span> is useful in daily city life, weekends away, and travel
+        situations wherever parents share practical local knowledge.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          What makes <span class="brand-word">BabyCities</span> different?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        The app focuses on practical details parents really need, like baby
+        filters and family-friendly amenities, instead of generic reviews.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          Can parents improve the map?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        Yes. Parents can share useful updates and confirm what is really
+        available, which makes the app more reliable for everyone.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          Is <span class="brand-word">BabyCities</span> free to use?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        Yes. <span class="brand-word">BabyCities</span> is designed to be easy to access for parents looking
+        for practical family-friendly places.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          Can I use <span class="brand-word">BabyCities</span> while traveling?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        Yes. The app is especially helpful when you are in a neighborhood or a
+        city you do not know well yet.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          Can I suggest a place to add?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        Yes. <span class="brand-word">BabyCities</span> grows with parent contributions, so suggesting useful
+        family-friendly places helps make the map better for everyone.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+    <div toggleElement class="w-full py-4">
+      <div class="flex justify-between items-center">
+        <div question class="font-montserrat font-medium mr-auto faq-question">
+          What kind of places can I find on <span class="brand-word">BabyCities</span>?
+        </div>
+        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
+      </div>
+      <div answer class="font-montserrat font-normal hidden faq-answer">
+        You can explore cafes, restaurants, parks and everyday spots where
+        baby-friendly amenities can make outings easier.
+      </div>
+    </div>
+    <hr class="w-full bg-white" />
+
+  </section>
+
+  <!-- Footer -->
+  <section class="bg-red sectionSize">
+    <div class="mb-4">
+      <img src='dist/assetsbis/images/logo-long/logo.png' alt="BabyCities" class="h-10 footer-wordmark-beige" />
+    </div>
+    <div class="flex items-center mb-6">
+      <a href="#">
+        <img src='dist/assets/logos/Facebook.svg' alt="Facebook logo" class="mx-1" />
+      </a>
+      <a class="footer-icon-link mx-1" href="https://www.linkedin.com/company/babycities/?viewAsMember=true"
+        target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <span class="font-montserrat font-semibold text-lg leading-none">in</span>
+      </a>
+      <a href="https://www.instagram.com/babycitiesapp/?hl=fr" target="_blank" rel="noreferrer">
+        <img src='dist/assets/logos/Instagram.svg' alt="Instagram logo" class="mx-1" />
+      </a>
+      <a class="footer-icon-link mx-1" href="mailto:hello@babycities.app" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect x="3" y="5.5" width="18" height="13" rx="2"></rect>
+          <path d="M4.5 7l7.5 6 7.5-6"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-meta-links font-montserrat text-sm">
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <span>|</span>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span>|</span>
+      <span>© 2026 <span class="brand-word">BabyCities</span>. All rights reserved.</span>
+    </div>
+  </section>
+</body>
+
+</html>
