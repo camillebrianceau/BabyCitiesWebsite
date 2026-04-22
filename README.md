@@ -1,41 +1,54 @@
-# Startup Landing Page
+# BabyCities Website
 
-A starter template for very simple projects (no frameworks) with Tailwind CSS setup as a PostCSS plugin. You only need to install NPM.
+Landing page for BabyCities, a community-driven app that helps parents find family-friendly places and practical baby amenities while they are out and about.
 
-Follow the Getting Started guide and build websites with Tailwind CSS. Also, follow the steps to Optimize for Production to end up with a very tiny final CSS bundle.
+## What is BabyCities?
 
-## Getting Started
+BabyCities helps families quickly find places with useful baby equipment and kid-friendly features such as:
 
-1.  Download and install NPM - [A Beginner’s Guide to npm](https://www.sitepoint.com/npm-guide/)
+- changing tables
+- high chairs
+- stroller access
+- nursing areas
+- microwaves
+- indoor or outdoor play areas
 
-2.  Install dependencies
+The goal is simple: make family outings easier, whether you are around the corner or planning ahead for a trip.
 
-        npm install
+## Project structure
 
-3.  Build using Tailwind CSS
+- `index.html`: main landing page
+- `terms-and-conditions.html`: legal terms page
+- `privacy-policy.html`: privacy page
+- `dist/styles.css`: site styles
+- `dist/script.js`: interactive behavior, live counters, Supabase queries
+- `dist/supabase-config.js`: public Supabase config used by the landing page
 
-        npm run build
+## Deployment
 
-4.  Open the `public > index.html` file in your browser and you should see a heading styled with a gradient. If you don't see a gradient on the text, something went wrong.
+This repo is set up as a simple static website.
 
-## How to use
+You can publish it directly on:
 
-- Go to `public > index.html` Remove the `<h1>` element and start adding your own HTML.
-- If you need to add more HTML pages, add them in the `public` folder.
-- To extract classes and use the `@apply` directive, edit the custom CSS file in `src > styles.css`. Add any amount of custom CSS within this file. Refer [https://tailwindcss.com/docs/installation#using-a-custom-css-file](https://tailwindcss.com/docs/installation#using-a-custom-css-file)
+- GitHub Pages
+- Netlify
+- Vercel
+- any static hosting service
 
-Watch HTML files for changes and build automatically everytime using
+No build step is required for the current version of the site.
 
-    npm run watch
+## Supabase
 
-NOTE: Do NOT edit the file `public > dist > styles.css` directly - This is the distribution stylesheet. The CSS here is generated from `src > styles.css` using Tailwind when you build.
+The landing page can read public stats from Supabase for:
 
-## Optimize for production
+- places shared
+- countries covered
+- users in the community
 
-Before pushing your code (the `public` folder) for production, run the below command to reduce the size of `styles.css` within the public folder
+It can also update the "you can find" counter in real time depending on the selected place type and baby filter.
 
-     npm run prod
+Only the public project URL and public anon/publishable key should be used in this website.
 
-NOTE: If you are using Windows and face an error `NODE ENV not recognised`, run the below command
+## Contact
 
-     npm install win-node-env
+`hello@babycities.app`

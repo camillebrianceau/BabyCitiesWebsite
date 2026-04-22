@@ -1,15 +1,27 @@
 window.addEventListener("load", function () {
-  document
-    .querySelector("#showMenu")
-    .addEventListener("click", function () {
-      document.querySelector("#mobileNav").classList.remove("hidden");
-    });
+  const mobileNav = document.querySelector("#mobileNav");
+  const showMenuButton = document.querySelector("#showMenu");
+  const hideMenuButton = document.querySelector("#hideMenu");
 
-  document
-    .querySelector("#hideMenu")
-    .addEventListener("click", function () {
-      document.querySelector("#mobileNav").classList.add("hidden");
+  if (showMenuButton && mobileNav) {
+    showMenuButton.addEventListener("click", function () {
+      mobileNav.classList.remove("hidden");
     });
+  }
+
+  if (hideMenuButton && mobileNav) {
+    hideMenuButton.addEventListener("click", function () {
+      mobileNav.classList.add("hidden");
+    });
+  }
+
+  if (mobileNav) {
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", function () {
+        mobileNav.classList.add("hidden");
+      });
+    });
+  }
 
   document.querySelectorAll("[toggleElement]").forEach((toggle) => {
     toggle.addEventListener("click", function () {
@@ -27,7 +39,6 @@ window.addEventListener("load", function () {
   });
 
   const statsSection = document.querySelector("[data-stats-section]");
-  const statsStatus = document.querySelector("[data-stats-status]");
   const storyFinder = document.querySelector("[data-story-finder]");
   const storyCount = document.querySelector("[data-story-count]");
   const storyTypePicker = document.querySelector("[data-story-type-picker]");
@@ -485,6 +496,32 @@ window.addEventListener("load", function () {
     });
   }
 
+  function onStoryFilterSelect(option) {
+    selectedStoryFilter = option;
+    updatePickerDisplay(option, storyFilterLabel, storyFilterIcon);
+    closePicker(storyFilterPicker);
+    loadStoryCount();
+  }
+
+  function onStoryTypeSelect(option) {
+    selectedStoryType = option;
+    updatePickerDisplay(option, storyTypeLabel, storyTypeIcon);
+    closePicker(storyTypePicker);
+    loadStoryCount();
+  }
+
+  function renderStoryFilterOptions() {
+    if (!storyFilterMenu) return;
+    buildPickerOptions(storyFilterMenu, BABY_FILTER_OPTIONS, onStoryFilterSelect);
+    updatePickerDisplay(selectedStoryFilter, storyFilterLabel, storyFilterIcon);
+  }
+
+  function renderStoryTypeOptions() {
+    if (!storyTypeMenu) return;
+    buildPickerOptions(storyTypeMenu, storyTypeOptions, onStoryTypeSelect);
+    updatePickerDisplay(selectedStoryType, storyTypeLabel, storyTypeIcon);
+  }
+
   async function loadSupabaseStats() {
     if (!statsSection) return;
 
@@ -497,10 +534,6 @@ window.addEventListener("load", function () {
     const usersField = config.usersField || "users_count";
 
     if (!url || !anonKey) {
-      if (statsStatus) {
-        statsStatus.textContent =
-          "Add your Supabase public config to display live stats here.";
-      }
       return;
     }
 
@@ -524,19 +557,10 @@ window.addEventListener("load", function () {
       updateStat("places", parseStatValue(stats[placesField]));
       updateStat("countries", parseStatValue(stats[countriesField]));
       updateStat("users", parseStatValue(stats[usersField]));
-
-      if (statsStatus) {
-        statsStatus.textContent = "Live stats from the BabyCities community.";
-      }
     } catch (error) {
       updateStat("places", NaN);
       updateStat("countries", NaN);
       updateStat("users", NaN);
-
-      if (statsStatus) {
-        statsStatus.textContent =
-          "Live stats are not available yet. Check the Supabase public view configuration.";
-      }
     }
   }
 
@@ -547,14 +571,7 @@ window.addEventListener("load", function () {
     const url = config.url || "";
     const anonKey = config.anonKey || "";
 
-    buildPickerOptions(storyFilterMenu, BABY_FILTER_OPTIONS, function (option) {
-      selectedStoryFilter = option;
-      updatePickerDisplay(option, storyFilterLabel, storyFilterIcon);
-      closePicker(storyFilterPicker);
-      loadStoryCount();
-    });
-
-    updatePickerDisplay(selectedStoryFilter, storyFilterLabel, storyFilterIcon);
+    renderStoryFilterOptions();
 
     if (!url || !anonKey) {
       storyTypeOptions = dedupePlaceTypeOptions(FALLBACK_PLACE_TYPE_OPTIONS);
@@ -563,15 +580,7 @@ window.addEventListener("load", function () {
         ["restaurant", "restaurants", "resto"],
         DEFAULT_TYPE_OPTION
       );
-
-      buildPickerOptions(storyTypeMenu, storyTypeOptions, function (option) {
-        selectedStoryType = option;
-        updatePickerDisplay(option, storyTypeLabel, storyTypeIcon);
-        closePicker(storyTypePicker);
-        loadStoryCount();
-      });
-
-      updatePickerDisplay(selectedStoryType, storyTypeLabel, storyTypeIcon);
+      renderStoryTypeOptions();
       return;
     }
 
@@ -612,15 +621,7 @@ window.addEventListener("load", function () {
       ["restaurant", "restaurants", "resto"],
       DEFAULT_TYPE_OPTION
     );
-
-    buildPickerOptions(storyTypeMenu, storyTypeOptions, function (option) {
-      selectedStoryType = option;
-      updatePickerDisplay(option, storyTypeLabel, storyTypeIcon);
-      closePicker(storyTypePicker);
-      loadStoryCount();
-    });
-
-    updatePickerDisplay(selectedStoryType, storyTypeLabel, storyTypeIcon);
+    renderStoryTypeOptions();
   }
 
   async function loadStoryCount() {
